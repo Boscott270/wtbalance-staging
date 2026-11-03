@@ -1,6 +1,6 @@
 # WT Balance staging
 
-Static early-access site, deployed with GitHub Pages from the root of `main`. No build step.
+Static site, deployed with GitHub Pages from the root of `main`. No build step.
 
 - Every page is blocked from search engines (`noindex` tag and `robots.txt`). Remove both at launch.
 - Yellow highlights mark facts to confirm before launch.
