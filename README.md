@@ -6,3 +6,9 @@ Static site, deployed with GitHub Pages from the root of `main`. No build step.
 - Pages must not carry internal notes. Keep review items outside the site.
 - Signups: set `publicKey` and `listId` at the top of `site.js`. Until then, the form saves nothing and says so.
 - The form collects email only. Do not add health questions: GitHub Pages and marketing lists are not a place for patient information.
+
+## Products and launch files
+
+- Each product option is its own page: `products/<drug>/<strength>/<supply>/`. Option buttons are real links, so search engines can follow them.
+- `sitemap.xml`, `robots-production.txt` and `llms.txt` use the production domain. At launch, replace `robots.txt` with `robots-production.txt` and remove the `noindex` tags.
+- `redirects.csv` maps old store and site links to the new pages.

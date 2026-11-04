@@ -16,3 +16,15 @@ const tabs=[...document.querySelectorAll('[role=tab]')];
 function pick(x,focus){tabs.forEach(t=>{const on=t===x;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;document.getElementById(t.getAttribute('aria-controls')).hidden=!on});if(focus)x.focus()}
 tabs.forEach((t,n)=>{t.addEventListener('click',()=>pick(t));t.addEventListener('keydown',e=>{const d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();pick(tabs[(n+d+tabs.length)%tabs.length],true)}})});
 if(tabs.length)pick(tabs[0]);
+
+// Product options: each option is a real page. This swaps it in without a full reload and updates the address.
+async function swapProduct(url,push){
+ try{const r=await fetch(url);if(!r.ok)throw 0;const d=new DOMParser().parseFromString(await r.text(),'text/html');
+  d.querySelectorAll('#product [href]').forEach(a=>a.setAttribute('href',new URL(a.getAttribute('href'),url).href));
+  const m=document.getElementById('product');m.replaceWith(d.getElementById('product'));document.title=d.title;
+  for(const s of ['meta[name=description]','link[rel=canonical]','meta[property="og:title"]','meta[property="og:description"]','meta[property="og:url"]']){const a=document.querySelector(s),b=d.querySelector(s);if(a&&b){a.getAttribute('href')!==null?a.setAttribute('href',b.getAttribute('href')):a.setAttribute('content',b.getAttribute('content'))}}
+  document.head.querySelectorAll('script[type="application/ld+json"]').forEach(s=>s.remove());d.head.querySelectorAll('script[type="application/ld+json"]').forEach(s=>document.head.appendChild(document.importNode(s,true)));
+  if(push)history.pushState({},'',url);const n=document.getElementById('product');n.tabIndex=-1;n.focus({preventScroll:true})}
+ catch{location.href=url}}
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a.opt');if(!a||e.metaKey||e.ctrlKey||e.shiftKey)return;e.preventDefault();swapProduct(a.href,true)});
+if(document.getElementById('product'))addEventListener('popstate',()=>swapProduct(location.href,false));

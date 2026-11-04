@@ -1,2 +1,4 @@
+# Staging: blocked from search engines.
+# At launch, replace this file with robots-production.txt and remove noindex tags.
 User-agent: *
 Disallow: /
