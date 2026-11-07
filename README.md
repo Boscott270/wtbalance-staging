@@ -12,3 +12,7 @@ Static site, deployed with GitHub Pages from the root of `main`. No build step.
 - Each product option is its own page: `products/<drug>/<strength>/<supply>/`. Option buttons are real links, so search engines can follow them.
 - `sitemap.xml`, `robots-production.txt` and `llms.txt` use the production domain. At launch, replace `robots.txt` with `robots-production.txt` and remove the `noindex` tags.
 - `redirects.csv` maps old store and site links to the new pages.
+
+## Photos
+
+Lifestyle photos are from Unsplash under the Unsplash License: Iraj Ishtiak (run), Scott Webb (lift), Calvin Shelwell (meal), Philip Myrtorp (moto), Michael Pointner (park), bruce mars (group). Product images in `img/pack-*` are illustrations; replace with real product photos when available.
