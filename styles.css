@@ -106,3 +106,5 @@ body{background:var(--paper)}
 .mobp{position:absolute;left:0;right:0;top:68px;background:#fff;border-top:1px solid var(--line);padding:12px 20px 24px;max-height:calc(100vh - 100px);overflow:auto;box-shadow:0 20px 40px rgba(11,21,80,.15)}.mobp .ddh{margin:16px 0 2px}.mobp .btn{display:block;text-align:center;margin-top:18px;color:#fff}}
 @media(max-width:860px){.kgrid,.kgrid.rev,.duo,.kftop{grid-template-columns:1fr;gap:28px}.kgrid.rev img{order:-1}.ksteps,.prices{grid-template-columns:1fr}.kband,.ksplit{padding:56px 0}.photo{padding:90px 0}.photo.big{padding:110px 0}}
 @media(max-width:560px){.hbar{height:60px}.mobp{top:60px}.hdr .logo{font-size:24px}.kfcols{grid-template-columns:1fr 1fr}.khero{padding:32px 0}.pcb{padding:4px 18px 22px}}
+
+.cg{font-size:26px;margin:30px 0 12px}#peptides{scroll-margin-top:90px}
